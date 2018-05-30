@@ -71,7 +71,7 @@
 	diskId=$(az disk list -g $rg -o tsv|grep $fxdisk|awk '{print $3}')
         az vm update --name $srcvm --resource-group $rg --os-disk $diskId
 #	echo In swap function
-	az vm show -g $rg -n $srcvm -d
+	az vm start  -g $rg -n $srcvm -d
 }
         # Ask the user for login detail
         clear	
