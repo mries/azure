@@ -3,7 +3,7 @@
 
 ####README#####
 
-Ver: 1.0
+Ver: 1.1
 
 Script for troubleshooting an Azure VM using Azure CLI in bash. This script can be used in either run in bash or cloudshell.
 
