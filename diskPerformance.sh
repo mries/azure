@@ -6,16 +6,16 @@ today=`date +%Y-%m-%d.%H:%M:%S` # or whatever pattern you desire
     {
 	echo ""
 	echo  
-	echo Disk Performance tests using fio.
-	echo required: fio installed
-	echo redhat:
-	echo yum makecache fastcache && yum install fio 
-	echo centos: 
-	echo yum makecache fastcache && yum install fio
-	echo suse:
-	echo https://software.opensuse.org/download.html?project=home%3Amalcolmlewis%3ASLE_12_General&package=fio
-	echo ubuntu: 
-	echo apt-get update && apt-get install fio
+	echo "Disk Performance tests using fio."
+	echo "required: fio installed"
+	echo "redhat:"
+	echo "yum makecache fastcache && yum install fio "
+	echo "centos: "
+	echo "yum makecache fastcache && yum install fio"
+	echo "suse:"
+	echo "https://software.opensuse.org/download.html?project=home%3Amalcolmlewis%3ASLE_12_General&package=fio"
+	echo "ubuntu: "
+	echo "apt-get update && apt-get install fio"
 	exit
 }
 # Function for user to verify their selections
