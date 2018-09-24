@@ -56,11 +56,11 @@ echo "	rm -f $disk/$fileName"
 
 #fio -filename=$disk/$fileName -iodepth=64 -ioengine=libaio -direct=1 -rw=randwrite -bs=4k -size=$outFile"G" -numjobs=64 -runtime=60 -group_reporting -name=test-randwrite >>fio-test-write.$today &	
 
-fio -filename=$disk/$fileName -iodepth=64 -ioengine=libaio -direct=1 -rw=randwrite -bs=4k -size=$outFile"G" -numjobs=64 -runtime=60 -group_reporting -name=test-randwrite >>fio-test-write.$today &	
+fio -filename=$disk/$fileName -iodepth=64 -ioengine=libaio -direct=1 -rw=randwrite -bs=4k -size=$outFile"G" -numjobs=5 -runtime=60 -group_reporting -name=test-randwrite >>fio-test-write.$today &	
 
 # fio -filename=$disk/$fileName -iodepth=64 -ioengine=libaio -direct=1 -rw=randwrite -bs=4k -size=$outFile"G" -numjobs=64 -runtime=60 -group_reporting -name=test-randread >>fio-test-read.$today &	
 
-fio -filename=$disk/$fileName -iodepth=64 -ioengine=libaio -direct=1 -rw=randwrite -bs=4k -size=$outFile"G" -numjobs=64 -runtime=60 -group_reporting -name=test-randread >>fio-test-read.$today &
+fio -filename=$disk/$fileName -iodepth=64 -ioengine=libaio -direct=1 -rw=randwrite -bs=4k -size=$outFile"G" -numjobs=5 -runtime=60 -group_reporting -name=test-randread >>fio-test-read.$today &
 }
         clear	
 	echo "####################################################"
