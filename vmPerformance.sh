@@ -20,7 +20,7 @@ perForm="/opt/performance"
         echo "####################################################"
 	echo "# VM Performance testing                           #"
 	echo "#                                                  #"
-	echo "# v:0.1                                            #"
+	echo "# v:0.2                                            #"
 	echo "# 2018/10/14                                       #"
 	echo "# Required iotop, iostat which may require         #"
 	echo "# installation.                                    #"
@@ -55,9 +55,9 @@ fi
 t=0
 #while jobs %1 &>/dev/null ; do
 while [ $t -le $s ]; do
-    top -b -n1 -Hc>>$vmperForm/top.$today
-    vmstat -a  -d -t -d >>$perForm/vmStatout.$today
-    iotop -otbn1>>$perForm/ioStat.$today
+    top -b -n1 -Hc>>$perForm/top.$today
+    vmstat -a  -d -t -d >>$perForm/vmStat.$today
+    iotop -otbn1>>$perForm/iotop.$today
     ps axjf>$perForm/ps.$today
     lsof +L -s  +w>$perForm/lsof.$today
 	t=$(( $t + 1 ))
