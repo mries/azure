@@ -45,7 +45,7 @@ today=`date +%Y-%m-%d.%H:%M:%S` # or whatever pattern you desire
 
     function ioStat()
     {
-	iostat -dhmNtxz 1 75 >>iostat.$today &
+	iostat -dmtz 1 75 >>iostat.$today &
 	rm -rf $disk/$fileName
 echo "	rm -f $disk/$fileName"
 }
@@ -54,11 +54,11 @@ echo "	rm -f $disk/$fileName"
     function Fio()
     {
 
-#fio -filename=$disk/$fileName -iodepth=64 -ioengine=libaio -direct=1 -rw=randwrite -bs=4k -size=$outFile"G" -numjobs=64 -runtime=60 -group_reporting -name=test-randwrite >>fio-test-write.$today &	
+#fio -filename=$disk/$fileName -iodepth=64 -ioengine=libaio -direct=1 -rw=randwrite -bs=64k -size=$outFile"G" -numjobs=64 -runtime=60 -group_reporting -name=test-randwrite >>fio-test-write.$today &	
 
 fio -filename=$disk/$fileName -iodepth=64 -ioengine=libaio -direct=1 -rw=randwrite -bs=4k -size=$outFile"G" -numjobs=5 -runtime=60 -group_reporting -name=test-randwrite >>fio-test-write.$today &	
 
-# fio -filename=$disk/$fileName -iodepth=64 -ioengine=libaio -direct=1 -rw=randwrite -bs=4k -size=$outFile"G" -numjobs=64 -runtime=60 -group_reporting -name=test-randread >>fio-test-read.$today &	
+# fio -filename=$disk/$fileName -iodepth=64 -ioengine=libaio -direct=1 -rw=randwrite -bs=64k -size=$outFile"G" -numjobs=64 -runtime=60 -group_reporting -name=test-randread >>fio-test-read.$today &	
 
 fio -filename=$disk/$fileName -iodepth=64 -ioengine=libaio -direct=1 -rw=randwrite -bs=4k -size=$outFile"G" -numjobs=5 -runtime=60 -group_reporting -name=test-randread >>fio-test-read.$today &
 }
