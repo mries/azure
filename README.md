@@ -32,4 +32,11 @@ bash <(curl -s  https://raw.githubusercontent.com/mries/azure/master/os-swapdisk
 Using diskPerformance.sh, run this on the affected VM:
 bash <(curl -s  https://raw.githubusercontent.com/mries/azure/master/diskPerformance.sh )
 
+Ver: 0.1
+
+CPU threshold script that, when executed, sleeps until an event causes the top 10 processes in top to exceed the user's predefined threshold.
+When the threashold is reached or exceeded it startes taking metrics for top, free, and ifconfig (network throughput)
+
+Using cpuPerformance.sh, run this on the affected VM:
+bash <(curl -s  https://raw.githubusercontent.com/mries/azure/master/cpuPerformance.sh )
 
