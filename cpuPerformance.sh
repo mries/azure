@@ -18,14 +18,14 @@ function usage()
 function perf()
 while true; do 
 
-	t=$(top -b -n1|grep -A10 PID|grep -v %CPU|awk '{  sum += $9 } END { sum > 80;print sum}')
+	t=$(top -b -n1|grep -A10 PID|grep -v %CPU|awk '{  sum += $9 } END { sum > $thresh;print sum}')
 	CPU=$(echo $t|awk '{split($1,a,"."); print a[1]}')
 	while [[ $CPU -gt $thesh ]] 
 	do
 		#echo $CPU
 		#echo "test"
-    		top -b -n1|grep -A10 PID|grep -v %CPU|awk '{  sum += $9 } END { sum > 80;system("ifconfig"); system("free -m"); system("top -b -n1")}'>>$log
-    		t=$(top -b -n1|grep -A10 PID|grep -v %CPU|awk '{  sum += $9 } END { sum > 80;print sum}')
+    		top -b -n1|grep -A10 PID|grep -v %CPU|awk '{  sum += $9 } END { sum > $thresh;system("ifconfig"); system("free -m"); system("top -b -n1")}'>>$log
+    		t=$(top -b -n1|grep -A10 PID|grep -v %CPU|awk '{  sum += $9 } END { sum > $thresh;print sum}')
 		CPU=$(echo $t|awk '{split($1,a,"."); print a[1]}')
 
 	done
