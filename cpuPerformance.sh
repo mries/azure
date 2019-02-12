@@ -20,7 +20,7 @@ while true; do
 
 	t=$(top -b -n1|grep -A10 PID|grep -v %CPU|awk '{  sum += $9 } END { sum > $thresh;print sum}')
 	CPU=$(echo $t|awk '{split($1,a,"."); print a[1]}')
-	while [[ $CPU -gt $thesh ]] 
+	while [[ $CPU -gt $thresh ]] 
 	do
 		#echo $CPU
 		#echo "test"
