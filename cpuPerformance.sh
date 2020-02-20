@@ -1,5 +1,5 @@
 #!/bin/bash
-
+today=`date +%Y-%m-%d.%H:%M:%S` # or whatever pattern you desire
 log=performance.out
 function usage()
     {
@@ -24,7 +24,7 @@ while true; do
 	do
 		#echo $CPU
 		#echo "test"
-    		top -b -n1|grep -A10 PID|grep -v %CPU|awk '{  sum += $9 } END { sum > $thresh;system("ifconfig"); system("free -m"); system("top -b -n1")}'>>$log
+    		top -b -n1|grep -A10 PID|grep -v %CPU|awk '{  sum += $9 } END { sum > $thresh;system("ifconfig"); system("free -m"); system("top -b -n1")}'>>$today.$log
     		t=$(top -b -n1|grep -A10 PID|grep -v %CPU|awk '{  sum += $9 } END { sum > $thresh;print sum}')
 		CPU=$(echo $t|awk '{split($1,a,"."); print a[1]}')
 
