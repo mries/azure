@@ -36,7 +36,7 @@ If Using Linux rather than cloudshell for os-swapdisk.sh  It is quicker to run i
 
 
 
-#Set up cli in a docker container in ubuntu
+How to set up cli in a docker container in ubuntu
 sudo -i
 apt-get update && apt-get install docker.io -y
 alias azcli1=“docker run -it microsoft/azure-cli:0.10.13”
