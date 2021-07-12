@@ -7,10 +7,10 @@
 
 5 Scripts for troubleshooting an Azure Linux  VMs in bash. This 
 
-1. os-swapdisk.sh ver. 1.1 </n>
+1. os-swapdisk.sh ver. 1.1:
    Script for troubleshooting a VM that has failed boot without deleting VM
 
-2. diskPerformance.sh ver. 1.0
+2. diskPerformance.sh ver. 1.0: 
    Script for checking disk performance of attahced disks.
    echo Disk Performance tests using fio.
         Required: fio installed
@@ -19,16 +19,16 @@
         Suse:   https://software.opensuse.org/download.html?project=home%3Amalcolmlewis%3ASLE_12_General&package=fio
         Ubuntu: apt-get update && apt-get install fio
 
-3. cpuPerformance.sh ver, 2.0
+3. cpuPerformance.sh ver, 2.0:
    CPU threshold script that, when executed, sleeps until an event causes the top 10 processes in top to exceed the user's predefined threshold.
    When the threashold is reached or exceeded it startes taking metrics for top, free, and ifconfig (network throughput)
    - Script has  2 selections, "execute" which then prompts you for a threshold in % cpu  utilization. The second option is "stop" which stops the script.
 
-4. memPerformanceUsage.sh ver. 2.1
+4. memPerformanceUsage.sh ver. 2.1:
    mem uage script that, when executed, sleeps until a process using more memory than provided threshold is detedcted within the top 10 processes.
    - Script has  2 selections, "execute" which then prompts you for a threshold in % memory usage. The second option is "stop" which stops the script.
 
-5. vmPerformance.sh ver. 1.0
+5. vmPerformance.sh ver. 1.0:
    Simple script, that when executed simply collects iotop, iostat, top, ps and lsof performance data and outputs log to /opt/performance.
    Because it is loging to /opt script will need to be run as root. The script will hold a session for the diration of the test.
 
