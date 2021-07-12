@@ -34,7 +34,7 @@ run this on the affected VM:
 bash <(curl -s  https://raw.githubusercontent.com/mries/azure/master/diskPerformance.sh )
 
 cpuPerformance.sh
-run this on the affected VM:
+Run this on the affected VM:
 bash <(curl -s  https://raw.githubusercontent.com/mries/azure/master/cpuPerformance.sh)
 
 CPU threshold script that, when executed, sleeps until an event causes the top 10 processes in top to exceed the user's predefined threshold.
@@ -42,9 +42,12 @@ When the threashold is reached or exceeded it startes taking metrics for top, fr
 - Script 2 selections, "execute" which then prompts you for a threshold in % cpu  utilization. The second option is "stop" which stops the script.
 
 memPerformanceUsage.sh
-run this on the affected VM:
+Run this on the affected VM:
 bash <(curl -s  https://raw.githubusercontent.com/mries/azure/master/memPerformanceUsage.sh)
 
 mem uage script that, when executed, sleeps until a process using more memory than provided threshold is detedcted within the top 10 processes. 
 When the threshold is reached or exceeded it begins collecting metrics from top, free, and iostat.  When the event disappears the script returns to sleep.
 - Script 2 selections, "execute" which then prompts you for a threshold in % memory usage. The second option is "stop" which stops the script.
+
+
+-- Note: If executing memPerformanceUsage.sh or cpuPerformance.sh script remotely the process name will be something similar to  bash /dev/fd/63.  If you want to find the parent process (for manually killing process) type  cat  /tmp/memPerformance.pid
