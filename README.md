@@ -6,7 +6,8 @@
 
 
 5 Scripts for troubleshooting an Azure Linux  VMs in bash. This 
-1. os-swapdisk.sh ver. 1.1
+
+1. os-swapdisk.sh ver. 1.1 \n
    Script for troubleshooting a VM that has failed boot without deleting VM
 
 2. diskPerformance.sh ver. 1.0
