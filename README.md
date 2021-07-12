@@ -50,4 +50,4 @@ When the threshold is reached or exceeded it begins collecting metrics from top,
 - Script 2 selections, "execute" which then prompts you for a threshold in % memory usage. The second option is "stop" which stops the script.
 
 
--- Note: If executing memPerformanceUsage.sh or cpuPerformance.sh script remotely the process name will be something similar to  bash /dev/fd/63.  If you want to find the parent process (for manually killing process) type  cat  /tmp/memPerformance.pid
+-- Note: If executing memPerformanceUsage.sh or cpuPerformance.sh script remotely the process name will be something similar to  bash /dev/fd/63.  If you want to find the parent process (for manually killing process) type  cat  /tmp/memPerformance.pid or  cat  /tmp/cpuPerformance.sh
