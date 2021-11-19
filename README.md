@@ -61,4 +61,4 @@ vmPerformance.sh
 Run this on the affected VM:
 bash <(curl -s  https://raw.githubusercontent.com/mries/azure/master/vmPerformance.sh)
 
--- Note: If executing memPerformanceUsage.sh or cpuPerformanceCheck.sh script remotely the process name will be something similar to  bash /dev/fd/63.  If you want to find the parent process (for manually killing process) type  cat  /tmp/memPerformance.pid or  cat  /tmp/cpuPerformance.sh
+-- Note: If executing memPerformanceUsage.sh or cpuPerformanceCheck.sh script remotely the process name will be something similar to  bash /dev/fd/63.  If you want to find the parent process (for manually killing process) type  cat  /tmp/memPerformance.pid or  cat  /tmp/cpuPerformanceCheck.sh
