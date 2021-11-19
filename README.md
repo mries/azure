@@ -19,7 +19,7 @@
         Suse:   https://software.opensuse.org/download.html?project=home%3Amalcolmlewis%3ASLE_12_General&package=fio
         Ubuntu: apt-get update && apt-get install fio
 
-3. cpuPerformance.sh ver, 2.0:
+3. cpuPerformanceCheck.sh ver, 2.1:
    CPU threshold script that, when executed, sleeps until an event causes the top 10 processes in top to exceed the user's predefined threshold.
    When the threashold is reached or exceeded it startes taking metrics for top, free, and ifconfig (network throughput)
    - Script has  2 selections, "execute" which then prompts you for a threshold in % cpu  utilization. The second option is "stop" which stops the script.
@@ -51,7 +51,7 @@ bash <(curl -s  https://raw.githubusercontent.com/mries/azure/master/diskPerform
 
 cpuPerformance.sh
 Run this on the affected VM:
-bash <(curl -s  https://raw.githubusercontent.com/mries/azure/master/cpuPerformance.sh)
+bash <(curl -s  https://raw.githubusercontent.com/mries/azure/master/cpuPerformanceCheck.sh)
 
 memPerformanceUsage.sh
 Run this on the affected VM:
