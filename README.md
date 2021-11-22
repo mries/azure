@@ -49,7 +49,7 @@ Using diskPerformance.sh
 run this on the affected VM:
 bash <(curl -s  https://raw.githubusercontent.com/mries/azure/master/diskPerformance.sh )
 
-cpuPerformance.sh
+cpuPerformanceCheck.sh
 Run this on the affected VM:
 bash <(curl -s  https://raw.githubusercontent.com/mries/azure/master/cpuPerformanceCheck.sh)
 
