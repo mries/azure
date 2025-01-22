@@ -32,6 +32,11 @@
    Simple script, that when executed simply collects iotop, iostat, top, ps and lsof performance data and outputs log to /opt/performance.
    Because it is loging to /opt script will need to be run as root. The script will hold a session for the diration of the test.
 
+5. CpuPerformance.py ver. 1.0:
+   Simple script, that when executed simply collects top, free, and iostat performance data and outputs
+   log to ./[mmddhhmm]-[timezone]-[systemname].performance.out for later analysis.
+   
+   
 If Using Linux rather than cloudshell for os-swapdisk.sh  It is quicker to run in a docker container on Ubuntu:
 
 
