@@ -37,7 +37,7 @@
    log to ./[mmddhhmm]-[timezone]-[systemname].performance.out for later analysis.
    
    
-If Using Linux rather than cloudshell for os-swapdisk.sh  It is quicker to run in a docker container on Ubuntu:
+ When Using Linux rather than cloudshell for os-swapdisk.sh  It is quicker to run in a docker container on Ubuntu:
 
 
 
