@@ -1,0 +1,101 @@
+
+# VMcore Analysis Script — Red Hat Linux
+
+## Overview
+
+This script automates the initial steps of analyzing a Linux kernel crash dump (vmcore) on Red Hat and Red Hat-compatible systems (Rocky Linux, AlmaLinux, CentOS Stream).
+
+When a Linux kernel panics, it writes a memory dump (vmcore) to disk. Analyzing that dump requires matching kernel debug symbols and the `crash` utility. This script handles the setup and launches the analysis automatically, making it easier to identify the root cause of a kernel panic without having to manually locate packages or remember each command.
+
+Important: This script must be run on a system with the same kernel version as the machine that generated the vmcore. The kernel debug symbols must match exactly.
+
+For background on vmcore analysis methodology, refer to the following documentation:
+https://people.redhat.com/pladd/NYRHUG_kdump_and_intro_to_vmcore_analysis.pdf
+
+
+## Requirements
+
+- Red Hat, Rocky Linux, AlmaLinux, or CentOS Stream
+- Root privileges (`sudo`)
+- Internet or repository access to download `kernel-debuginfo` packages
+- The vmcore file accessible on the local filesystem
+
+
+
+## Usage
+
+sudo bash vmcore-analysis.sh
+
+The script will prompt for:
+
+1. Kernel version of the crashed system | `5.14.0-284.11.1.el9_2.x86_64` |
+2. Full path to the vmcore file | `/var/crash/2024-01-15-10:30/vmcore` |
+
+
+
+## What the Script Does
+
+1. Package check
+Verifies that `crash` and `kexec-tools` are installed. Installs any missing packages via `dnf`.
+
+2. Input collection
+Prompts for the kernel version and vmcore path, and validates both before proceeding.
+
+3. Debug symbol installation
+Downloads and installs `kernel-debuginfo` for the specified kernel version from the appropriate debug repositories. Falls back to `debuginfo-install` if the standard method does not find the package.
+
+4. vmlinux location
+Locates the `vmlinux` debug kernel image under `/usr/lib/debug`. If it is not found at the expected path, the script searches for it automatically.
+
+5. Crash analysis
+Launches the `crash` utility and automatically runs the following diagnostic commands:
+
+sys: System information 
+uname: Kernel version confirmed from the dump
+mod: Kernel modules loaded at time of crash
+bt: Backtrace — identifies the panic reason and call stack 
+
+All output is saved to `/var/log/vmcore-analysis.log`.
+
+
+
+## After the Script Runs
+
+Review the output with focus on:
+
+- bt — the backtrace is usually the fastest path to the root cause, showing what the kernel was doing at the moment of panic
+- mod — look for third-party or unexpected kernel modules that may have contributed
+- sys/uname — confirm the debug symbols matched the crashed kernel correctly
+
+To continue analysis interactively:
+
+
+crash /usr/lib/debug/lib/modules/<kernel-version>/vmlinux /var/crash/<timestamp>/vmcore
+
+
+
+
+## Log File
+
+All script output and crash analysis results are written to:
+
+
+/var/log/vmcore-analysis.log
+
+
+
+
+## Repository Enablement
+
+If the script cannot find `kernel-debuginfo` automatically, you may need to enable the appropriate debug repository manually before re-running:
+
+RHEL:
+
+subscription-manager repos --enable=rhel-*-debug-rpms
+
+
+Rocky Linux / AlmaLinux:
+
+dnf config-manager --enable baseos-debug
+
+
